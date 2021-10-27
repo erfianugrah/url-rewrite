@@ -1,0 +1,8 @@
+{
+    "name": "url-rewriter",
+    "version": "1.0.0",
+    "description": "url-rewriter",
+    "main": "resizer.js",
+    "author": "Erfi Anugrah",
+    "license": "ISC"
+}
