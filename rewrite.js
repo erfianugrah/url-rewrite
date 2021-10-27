@@ -14,15 +14,17 @@ addEventListener("fetch", (event) => {
 })
 
 async function rewriteURL(request) {
-    let newRequest = new URL(request.url)
+    let url = new URL(request.url)
+    let newURL = `${url.hostname}${url.pathname}`
     let subRequest = new Request(request)
     const regex = /^.*(\/test2\/)$/
 
     // URL rewrite
-    if (newRequest.pathname.match(regex)) {
-    origin_host = "http.erfianugrah.com"
-    newRequest.pathname = "/status/200"
-    newRequest.host = origin_host
+    if (url.pathname.match(regex)) {
+    origin_host = "navidrome.erfianugrah.com"
+    url.pathname = url.pathname.replace(regex, "test3")
+    // url.pathname = "/test3"
+    url.host = origin_host
 
     // Request Headers Modification
     subRequest.headers.set("test", "test")
@@ -33,8 +35,9 @@ async function rewriteURL(request) {
 
     // Response Headers Modification
     response = new Response(newResponse.body, newResponse)
-    response.headers.set("CF-Forward-Origin-Host", newRequest.host)
+    response.headers.set("CF-Forward-Origin-Host", url.host)
     response.headers.set("Cache-Control", "no-store")
     return response
     }
+    return await fetch(request)
 }
