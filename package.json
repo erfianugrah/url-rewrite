@@ -2,7 +2,7 @@
     "name": "url-rewriter",
     "version": "1.0.0",
     "description": "url-rewriter",
-    "main": "resizer.js",
+    "main": "rewrite.js",
     "author": "Erfi Anugrah",
     "license": "ISC"
 }
