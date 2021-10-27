@@ -15,4 +15,4 @@ workers_dev = true
 [env.prod]
 name = "prod-rewriter"
 vars = { ENVIRONMENT = "production" }
-route = "erfianugrah.com/*"
+route = "http.erfianugrah.com/*"
